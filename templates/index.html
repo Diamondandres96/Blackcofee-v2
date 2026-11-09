@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block body %}
+<section class="row align-items-center g-4 g-lg-5 py-4 py-lg-5"><div class="col-lg-7 order-2 order-lg-1"><h1 class="display-3">Colombia, in every cup.</h1>
+<p class="lead-p">Freeze-dried classics and organic whole-bean roasts from the Andes, shipped to your door anywhere in the world.</p>
+<div class="d-flex flex-wrap gap-2"><a class="btn btn-lg cta" href="#shop">Shop the coffee</a><a class="btn btn-lg btn-outline-dark rounded-pill" href="{{ url_for('subscribe') }}">Get it monthly</a></div></div>
+<div class="col-8 col-sm-6 col-lg-5 mx-auto order-1 order-lg-2"><div class="heroimg"><img src="{{ url_for('static', filename='img/classic.jpg') }}" alt="Juan Valdez Classic"><span class="badge-y">100% Colombian</span></div></div></section>
+<section class="row g-4 pb-5"><div class="col-md-4 perk"><b>Ships worldwide</b><span>Flat {{ ship|money }}, free over {{ free_over|money }}. Tracked, 5–10 business days.</span></div>
+<div class="col-md-4 perk"><b>Secure checkout</b><span>Card, Apple Pay and Google Pay via Stripe.</span></div>
+<div class="col-md-4 perk"><b>Save with combos</b><span>Bundles cost less than buying each coffee alone.</span></div></section>
+<section id="shop"><h2>Combos</h2><div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-5">{% for k,p in combos.items() %}{% include "_card.html" %}{% endfor %}</div>
+<h2>Single coffees</h2><div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-5">{% for k,p in singles.items() %}{% include "_card.html" %}{% endfor %}</div></section>
+<section class="row g-0 band mb-4"><div class="col-md-6 bimg"><img src="{{ url_for('static', filename='img/mesa340.jpg') }}" alt="Mesa de los Santos coffee bag"></div>
+<div class="col-md-6 btxt"><h2>Grown high, picked by hand</h2><p>Colombian coffee grows on steep Andean slopes, and most of it is still picked by hand, one ripe cherry at a time.</p><a class="btn cta" href="{{ url_for('story') }}">Read our story</a></div></section>
+<section class="row g-0 band mb-5"><div class="col-md-6 bimg order-md-2"><img src="{{ url_for('static', filename='img/vanicanela.jpg') }}" alt="Juan Valdez Vanicanela"></div>
+<div class="col-md-6 btxt"><h2>Never run out</h2><p>Choose a monthly box with shipping included and pay in dollars or euros.</p><a class="btn btn-outline-dark rounded-pill" href="{{ url_for('subscribe') }}">See subscriptions</a></div></section>
+{% endblock %}

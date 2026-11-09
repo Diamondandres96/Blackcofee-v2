@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block body %}
+<section class="py-5" style="max-width:420px;margin:0 auto">
+  <h1 class="h3 mb-4">Admin login</h1>
+  {% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="mb-3"><label class="form-label">Username</label><input class="form-control" type="text" name="username" autocomplete="username" required></div>
+    <div class="mb-3"><label class="form-label">Password</label><input class="form-control" type="password" name="password" autocomplete="current-password" required></div>
+    <button class="btn btn-dark w-100 rounded-pill fw-bold">Log in</button>
+  </form>
+</section>
+{% endblock %}

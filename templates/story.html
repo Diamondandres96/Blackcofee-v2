@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% block body %}
+<section class="row align-items-center g-4 py-4 py-lg-5"><div class="col-lg-7"><h1 class="display-4">The story of coffee in Colombia</h1><p class="lead-p">How a crop planted on a few mountain farms became the heart of a country's culture, and one of the most loved coffees in the world.</p>
+<a class="btn btn-lg cta" href="{{ url_for('index') }}#shop">Taste it yourself</a></div>
+<div class="col-8 col-lg-5 mx-auto"><div class="heroimg"><img src="{{ url_for('static', filename='img/mesa454.jpg') }}" alt="Mesa de los Santos organic coffee"></div></div></section>
+<section class="tl"><h2>A short timeline</h2>
+<div class="row py-3 border-top"><b class="col-md-3">Early 1700s</b><p class="col-md-9 m-0">Coffee reaches Colombia. Tradition credits Jesuit missionaries with planting the first bushes in the eastern mountains.</p></div>
+<div class="row py-3 border-top"><b class="col-md-3">1835</b><p class="col-md-9 m-0">The first small commercial shipment leaves from Cúcuta, near the Venezuelan border. Colombia is now an exporter.</p></div>
+<div class="row py-3 border-top"><b class="col-md-3">1927</b><p class="col-md-9 m-0">Growers found the National Federation of Coffee Growers (FNC) to represent small farmers and protect quality.</p></div>
+<div class="row py-3 border-top"><b class="col-md-3">1958</b><p class="col-md-9 m-0">Juan Valdez, the farmer with his mule Conchita, becomes the face of 100% Colombian coffee.</p></div>
+<div class="row py-3 border-top"><b class="col-md-3">2011</b><p class="col-md-9 m-0">UNESCO names the Coffee Cultural Landscape of Colombia a World Heritage Site.</p></div></section>
+<section class="row g-0 band mb-4"><div class="col-md-6 bimg"><img src="{{ url_for('static', filename='img/classic.jpg') }}" alt="Juan Valdez Classic"></div>
+<div class="col-md-6 btxt"><h2>Why it tastes different</h2><p>Colombia grows mostly Arabica on mountain slopes with rich soil, steady rain and cool nights. Most farms are small family plots, and ripe cherries are picked by hand. The result is a cup that is smooth, sweet and balanced.</p></div></section>
+<section class="tl"><h2>Where it grows</h2><div class="row py-3 border-top"><b class="col-md-3">Santander</b><p class="col-md-9 m-0">Chocolate and caramel notes from farms around Bucaramanga.</p></div>
+<div class="row py-3 border-top"><b class="col-md-3">Eje Cafetero</b><p class="col-md-9 m-0">Caldas, Risaralda and Quindío: the classic heartland of Colombian coffee.</p></div>
+<div class="row py-3 border-top"><b class="col-md-3">Huila &amp; Nariño</b><p class="col-md-9 m-0">High-altitude farms known for bright, fruity, award-winning cups.</p></div></section>
+<section class="row g-0 band mb-5"><div class="col-md-6 bimg order-md-2"><img src="{{ url_for('static', filename='img/mesa340.jpg') }}" alt="Mesa de los Santos"></div>
+<div class="col-md-6 btxt"><h2>Now on your table</h2><p>We ship Colombian favorites and organic small-farm roasts to your door.</p><a class="btn cta" href="{{ url_for('index') }}#shop">Shop the coffee</a></div></section>
+{% endblock %}

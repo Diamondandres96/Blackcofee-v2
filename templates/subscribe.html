@@ -1,0 +1,31 @@
+{% extends "base.html" %}{% block body %}
+<section class="text-center py-4">
+  <h1 class="display-5">Coffee every month</h1>
+  <p class="lead-p mx-auto">Pick a box and we ship it monthly, shipping always included. Cancel any time from your Stripe receipt email.</p>
+</section>
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+  {% for k,p in plans.items() %}
+  <div class="col"><article class="card p h-100 border-0">
+    <div class="im">{% if p.tag %}<span class="combo-tag">{{ p.tag }}</span>{% endif %}
+      <img src="{{ url_for('static', filename='img/'+p.img) }}" alt="{{ p.name }}" loading="lazy">
+      <button type="button" class="zoom-btn" data-bs-toggle="modal" data-bs-target="#zoomModal" data-img="{{ url_for('static', filename='img/'+p.img) }}" data-name="{{ p.name }}" aria-label="Zoom in on {{ p.name }}">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.2" y2="16.2"></line></svg>
+      </button>
+    </div>
+    <div class="card-body d-flex flex-column">
+      <h3 class="h4">{{ p.name }}</h3><small class="text-body-secondary">{{ p.desc }}</small>
+      <ul class="perks-list">{% for perk in p.perks %}<li>{{ perk }}</li>{% endfor %}</ul>
+      <form class="mt-auto pt-3 d-flex justify-content-between align-items-center" method="post" action="{{ url_for('subscribe_checkout', plan=k) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <span class="price">{{ (p|price)|money }}<small>/mo</small></span>
+        <button class="btn btn-dark rounded-pill fw-bold">Subscribe</button>
+      </form>
+    </div>
+  </article></div>
+  {% endfor %}
+</div>
+<section class="row g-4 pb-5">
+  <div class="col-md-4 perk"><b>Shipping included</b><span>No surprise costs. The price you see is the price you pay.</span></div>
+  <div class="col-md-4 perk"><b>Cancel anytime</b><span>One click from your email receipt, no calls, no forms.</span></div>
+  <div class="col-md-4 perk"><b>Pay in USD or EUR</b><span>Switch currency anytime from the top menu.</span></div>
+</section>
+{% endblock %}

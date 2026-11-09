@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block body %}<h2 class="mt-4">Your cart</h2>
+{% if not lines %}<p>Your cart is empty. <a href="{{ url_for('index') }}#shop">Add a coffee</a> to get started.</p>{% else %}
+<div class="row g-4 mb-5"><div class="col-lg-8"><div class="cartbox">{% for l in lines %}<div class="it row g-2 align-items-center"><div class="col-auto"><img src="{{ url_for('static', filename='img/'+l.img) }}" alt=""></div>
+<div class="col"><b>{{ l.name }}</b><br><small>{{ l.cents|money }} each</small></div>
+<div class="col-12 col-sm-auto d-flex gap-2 align-items-center"><form class="d-flex gap-2" method="post" action="{{ url_for('cart_set', pid=l.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input class="form-control form-control-sm" type="number" name="qty" min="0" max="20" value="{{ l.qty }}" aria-label="Quantity"><button class="btn btn-sm btn-dark rounded-pill">Update</button></form>
+<b>{{ l.total|money }}</b><form method="post" action="{{ url_for('cart_remove', pid=l.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="rm" aria-label="Remove {{ l.name }} from cart">Remove</button></form></div></div>{% endfor %}
+<form method="post" action="{{ url_for('cart_clear') }}" class="pt-2"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="rm">Clear cart</button></form></div></div>
+<div class="col-lg-4"><div class="cartbox sticky-lg-top" style="top:90px"><h3 class="h5">Order summary</h3>
+<div class="tot"><span>Subtotal</span><b>{{ sub|money }}</b></div><div class="tot"><span>Shipping</span><b>{{ sh|money if sh else 'Free' }}</b></div>
+{% if sh %}<small>Add {{ (free_over - sub)|money }} more for free shipping.</small>{% endif %}
+<div class="tot big"><span>Total</span><b>{{ total|money }}</b></div>
+<form method="post" action="{{ url_for('checkout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="pay">Pay securely with Stripe</button></form></div></div></div>{% endif %}{% endblock %}

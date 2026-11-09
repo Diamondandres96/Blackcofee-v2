@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 195">
+<g fill="#20140c">
+  <!-- tail -->
+  <path d="M90,100 C68,106 54,124 60,156 C70,138 80,118 94,104 Z"/>
+  <!-- body -->
+  <ellipse cx="135" cy="122" rx="50" ry="23"/>
+  <!-- neck, tapered -->
+  <path d="M170,110 C180,92 190,74 196,57 C202,60 208,64 210,70 C204,86 196,102 188,118 Z"/>
+  <!-- mane -->
+  <path d="M176,97 L170,84 L182,92 Z"/>
+  <path d="M184,82 L178,68 L190,78 Z"/>
+  <path d="M192,68 L187,54 L198,64 Z"/>
+  <!-- head -->
+  <path d="M188,52 C196,46 206,45 212,50 C220,52 226,56 224,62 C222,67 214,68 206,66 C200,70 192,69 188,64 C184,60 184,56 188,52 Z"/>
+  <ellipse cx="222" cy="60" rx="7" ry="5"/>
+  <!-- ear -->
+  <path d="M196,50 L200,32 L206,49 Z"/>
+  <!-- legs -->
+  <rect x="96" y="134" width="8" height="48" rx="4"/>
+  <rect x="118" y="134" width="8" height="48" rx="4"/>
+  <rect x="152" y="134" width="8" height="48" rx="4"/>
+  <rect x="174" y="134" width="8" height="48" rx="4"/>
+  <!-- coffee sack on back -->
+  <g transform="rotate(-6 132 96)">
+    <rect x="109" y="80" width="46" height="34" rx="10"/>
+    <rect x="128" y="67" width="9" height="15" rx="4"/>
+  </g>
+</g>
+</svg>
